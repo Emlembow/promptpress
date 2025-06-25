@@ -4,7 +4,7 @@ A TypeScript/JavaScript implementation of text compression that reduces prompt s
 
 ## 🚀 Demo
 
-Try it live: [https://yourusername.github.io/promptpress/](https://yourusername.github.io/promptpress/)
+Try it live: [https://emlembow.github.io/promptpress/](https://emlembow.github.io/promptpress/)
 
 ## 🎯 Why PromptPress?
 
@@ -54,7 +54,7 @@ Think of it like texting shortcuts - "ur" instead of "your", "bc" instead of "be
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/promptpress.git
+git clone https://github.com/Emlembow/promptpress.git
 cd promptpress
 
 # Install dependencies
