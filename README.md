@@ -146,16 +146,6 @@ Do not paraphrase or add anything to the text.
 - **Best for**: General queries, summaries, data analysis, creative writing prompts
 - **Language models**: Designed for modern transformer-based LLMs
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. Areas for improvement:
-
-- [ ] Add more language support
-- [ ] Implement custom compression algorithms
-- [ ] Add token counting (not just character counting)
-- [ ] Create browser extension
-- [ ] Add API endpoint for programmatic access
-
 ## 📚 The Science Behind PromptPress
 
 ### Information Theory Perspective
