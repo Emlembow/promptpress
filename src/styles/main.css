@@ -273,6 +273,29 @@ footer a:hover {
     margin-left: 8px;
 }
 
+/* Savings Explanation */
+.savings-explanation {
+    text-align: center;
+    margin: 0 auto 24px;
+    padding: 0 20px;
+}
+
+.savings-explanation p {
+    margin: 0 0 8px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.savings-explanation p:last-child {
+    margin-bottom: 0;
+}
+
+.savings-explanation .warning {
+    color: #f59e0b;
+    font-size: 13px;
+}
+
 /* Cost Estimates */
 .cost-estimates {
     display: grid;

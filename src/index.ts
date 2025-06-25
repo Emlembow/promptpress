@@ -22,6 +22,7 @@ const originalTokenCountSpan = document.getElementById('originalTokenCount') as 
 const compressedTokenCountSpan = document.getElementById('compressedTokenCount') as HTMLSpanElement;
 const tokensSavedSpan = document.getElementById('tokensSaved') as HTMLSpanElement;
 const tokensSavedPercentSpan = document.getElementById('tokensSavedPercent') as HTMLSpanElement;
+const savingsExplanationDiv = document.getElementById('savingsExplanation') as HTMLDivElement;
 const costEstimatesDiv = document.getElementById('costEstimates') as HTMLDivElement;
 
 // Options elements
@@ -149,24 +150,21 @@ function displayTokenSavings(savings: ReturnType<typeof calculateTokenSavings>) 
     tokensSavedSpan.textContent = savings.tokensSaved.toLocaleString();
     tokensSavedPercentSpan.textContent = `(${savings.percentageSaved.toFixed(1)}%)`;
     
-    // Clear existing cost estimates
-    costEstimatesDiv.innerHTML = '';
-    
-    // Add a note about what the savings mean
-    const noteContainer = document.createElement('div');
-    noteContainer.style.cssText = 'text-align: center; margin: 0 auto 20px; max-width: 800px;';
+    // Clear and update explanation
+    savingsExplanationDiv.innerHTML = '';
     
     const note = document.createElement('p');
-    note.style.cssText = 'margin: 0 0 8px 0; color: #9ca3af; font-size: 14px; line-height: 1.5;';
-    note.innerHTML = `Based on ${savings.tokensSaved} tokens saved. These are the actual dollar amounts you save on <strong>input tokens</strong> for this specific text.`;
+    note.innerHTML = `Based on ${savings.tokensSaved.toLocaleString()} tokens saved. These are the actual dollar amounts you save on <strong>input tokens</strong> for this specific text.`;
     
     const warning = document.createElement('p');
-    warning.style.cssText = 'margin: 0; color: #f59e0b; font-size: 13px; line-height: 1.5;';
+    warning.className = 'warning';
     warning.innerHTML = `⚠️ Note: Output tokens are not reduced and can be 10-100x more expensive, especially for reasoning models (o1, o3) that "think" before answering.`;
     
-    noteContainer.appendChild(note);
-    noteContainer.appendChild(warning);
-    costEstimatesDiv.appendChild(noteContainer);
+    savingsExplanationDiv.appendChild(note);
+    savingsExplanationDiv.appendChild(warning);
+    
+    // Clear existing cost estimates
+    costEstimatesDiv.innerHTML = '';
     
     // Sort cost savings by popularity/relevance
     const popularModels = ['gpt-4o-mini', 'gpt-4o', 'claude-haiku-3.5', 'claude-sonnet-3.5', 'o3-mini', 'gpt-4.1-mini'];
