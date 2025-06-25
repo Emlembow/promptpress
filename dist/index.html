@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PromptPress - Text Compression Tool</title>
-  <script type="module" crossorigin src="/promptpress/assets/main-BvguumbV.js"></script>
-  <link rel="stylesheet" crossorigin href="/promptpress/assets/main-CZCvO0CW.css">
+  <script type="module" crossorigin src="/promptpress/assets/main-cy4mJyDk.js"></script>
+  <link rel="stylesheet" crossorigin href="/promptpress/assets/main-BK9noHkG.css">
 </head>
 <body>
     <div class="container">
@@ -21,6 +21,7 @@
                 <div class="stats">
                     <span>Characters: <span id="inputChars">0</span></span>
                     <span>Words: <span id="inputWords">0</span></span>
+                    <span>Tokens: <span id="inputTokens">0</span></span>
                 </div>
             </div>
 
@@ -74,9 +75,32 @@
                 <div class="stats">
                     <span>Characters: <span id="outputChars">0</span></span>
                     <span>Words: <span id="outputWords">0</span></span>
+                    <span>Tokens: <span id="outputTokens">0</span></span>
                     <span>Compression: <span id="compressionRatio">0%</span></span>
                 </div>
                 <button id="copyBtn" class="secondary-btn" disabled>Copy to Clipboard</button>
+            </div>
+
+            <div class="savings-section" id="savingsSection" style="display: none;">
+                <h2>💰 Token Savings & Cost Estimates</h2>
+                <div class="token-summary">
+                    <div class="token-stat">
+                        <span class="label">Original Tokens:</span>
+                        <span class="value" id="originalTokenCount">0</span>
+                    </div>
+                    <div class="token-stat">
+                        <span class="label">Compressed Tokens:</span>
+                        <span class="value" id="compressedTokenCount">0</span>
+                    </div>
+                    <div class="token-stat highlight">
+                        <span class="label">Tokens Saved:</span>
+                        <span class="value" id="tokensSaved">0</span>
+                        <span class="percentage" id="tokensSavedPercent">(0%)</span>
+                    </div>
+                </div>
+                <div class="cost-estimates" id="costEstimates">
+                    <!-- Cost estimates will be dynamically inserted here -->
+                </div>
             </div>
         </main>
 

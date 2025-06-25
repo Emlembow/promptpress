@@ -214,6 +214,114 @@ footer a:hover {
     color: var(--success-color);
 }
 
+/* Token Savings Section */
+.savings-section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.savings-section h2 {
+    margin: 0 0 20px 0;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.token-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.token-stat {
+    background: var(--bg-primary);
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.token-stat.highlight {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a7c 100%);
+    border-color: #3d5a8c;
+}
+
+.token-stat .label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.token-stat .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.token-stat.highlight .value {
+    color: #4ade80;
+}
+
+.token-stat .percentage {
+    font-size: 16px;
+    color: #4ade80;
+    margin-left: 8px;
+}
+
+/* Cost Estimates */
+.cost-estimates {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.cost-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.cost-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.cost-card .model-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.cost-card .cost-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.cost-card .cost-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.cost-card .cost-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4ade80;
+}
+
+.cost-card .cost-value.small {
+    font-size: 14px;
+    font-weight: normal;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -226,5 +334,13 @@ footer a:hover {
     .stats {
         flex-direction: column;
         gap: 5px;
+    }
+    
+    .token-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .cost-estimates {
+        grid-template-columns: 1fr;
     }
 }

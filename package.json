@@ -12,5 +12,8 @@
     "@types/node": "^20.11.5",
     "typescript": "^5.3.3",
     "vite": "^5.0.12"
+  },
+  "dependencies": {
+    "gpt-tokenizer": "^3.0.1"
   }
 }
