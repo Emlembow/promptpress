@@ -1,0 +1,16 @@
+{
+  "name": "promptpress",
+  "version": "1.0.0",
+  "description": "A TypeScript web app for text compression that reduces prompt sizes by 40-60% for Language Models",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  }
+}

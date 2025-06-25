@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptPress - Text Compression Tool</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PromptPress</h1>
+            <p class="subtitle">Compress text while preserving meaning</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <h2>Input Text</h2>
+                <textarea id="inputText" placeholder="Enter or paste your text here..." rows="10"></textarea>
+                <div class="stats">
+                    <span>Characters: <span id="inputChars">0</span></span>
+                    <span>Words: <span id="inputWords">0</span></span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="compressBtn" class="primary-btn">Compress Text</button>
+                
+                <div class="options">
+                    <h3>Compression Options</h3>
+                    <label>
+                        <input type="checkbox" id="removeStopwords" checked>
+                        Remove stopwords
+                    </label>
+                    <label>
+                        <input type="checkbox" id="removePunctuation">
+                        Remove punctuation
+                    </label>
+                    <label>
+                        <input type="checkbox" id="removeSpaces" checked>
+                        Remove spaces
+                    </label>
+                    <label>
+                        <input type="checkbox" id="useStemming">
+                        Use stemming
+                    </label>
+                    <div class="stemmer-options" style="display: none;">
+                        <label>Stemmer:</label>
+                        <select id="stemmerType">
+                            <option value="porter">Porter</option>
+                            <option value="snowball">Snowball</option>
+                            <option value="lancaster">Lancaster</option>
+                        </select>
+                    </div>
+                    <div class="language-options">
+                        <label>Language:</label>
+                        <select id="language">
+                            <option value="english">English</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="french">French</option>
+                            <option value="german">German</option>
+                            <option value="italian">Italian</option>
+                            <option value="portuguese">Portuguese</option>
+                            <option value="dutch">Dutch</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h2>Compressed Output</h2>
+                <textarea id="outputText" readonly placeholder="Compressed text will appear here..." rows="10"></textarea>
+                <div class="stats">
+                    <span>Characters: <span id="outputChars">0</span></span>
+                    <span>Words: <span id="outputWords">0</span></span>
+                    <span>Compression: <span id="compressionRatio">0%</span></span>
+                </div>
+                <button id="copyBtn" class="secondary-btn" disabled>Copy to Clipboard</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 PromptPress Text Compression Tool</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/index.ts"></script>
+</body>
+</html>
