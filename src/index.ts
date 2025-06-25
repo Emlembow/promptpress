@@ -153,11 +153,20 @@ function displayTokenSavings(savings: ReturnType<typeof calculateTokenSavings>) 
     costEstimatesDiv.innerHTML = '';
     
     // Add a note about what the savings mean
+    const noteContainer = document.createElement('div');
+    noteContainer.style.cssText = 'text-align: center; margin: 0 auto 20px; max-width: 800px;';
+    
     const note = document.createElement('p');
-    note.style.cssText = 'margin: 0 0 16px 0; color: #9ca3af; font-size: 14px; line-height: 1.5;';
-    note.innerHTML = `Based on ${savings.tokensSaved} tokens saved. These are the actual dollar amounts you save on <strong>input tokens</strong> for this specific text.<br>
-    <span style="color: #f59e0b; font-size: 13px;">⚠️ Note: Output tokens are not reduced and can be 10-100x more expensive, especially for reasoning models (o1, o3) that "think" before answering.</span>`;
-    costEstimatesDiv.appendChild(note);
+    note.style.cssText = 'margin: 0 0 8px 0; color: #9ca3af; font-size: 14px; line-height: 1.5;';
+    note.innerHTML = `Based on ${savings.tokensSaved} tokens saved. These are the actual dollar amounts you save on <strong>input tokens</strong> for this specific text.`;
+    
+    const warning = document.createElement('p');
+    warning.style.cssText = 'margin: 0; color: #f59e0b; font-size: 13px; line-height: 1.5;';
+    warning.innerHTML = `⚠️ Note: Output tokens are not reduced and can be 10-100x more expensive, especially for reasoning models (o1, o3) that "think" before answering.`;
+    
+    noteContainer.appendChild(note);
+    noteContainer.appendChild(warning);
+    costEstimatesDiv.appendChild(noteContainer);
     
     // Sort cost savings by popularity/relevance
     const popularModels = ['gpt-4o-mini', 'gpt-4o', 'claude-haiku-3.5', 'claude-sonnet-3.5', 'o3-mini', 'gpt-4.1-mini'];
