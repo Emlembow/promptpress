@@ -152,6 +152,13 @@ function displayTokenSavings(savings: ReturnType<typeof calculateTokenSavings>) 
     // Clear existing cost estimates
     costEstimatesDiv.innerHTML = '';
     
+    // Add a note about what the savings mean
+    const note = document.createElement('p');
+    note.style.cssText = 'margin: 0 0 16px 0; color: #9ca3af; font-size: 14px; line-height: 1.5;';
+    note.innerHTML = `Based on ${savings.tokensSaved} tokens saved. These are the actual dollar amounts you save on <strong>input tokens</strong> for this specific text.<br>
+    <span style="color: #f59e0b; font-size: 13px;">⚠️ Note: Output tokens are not reduced and can be 10-100x more expensive, especially for reasoning models (o1, o3) that "think" before answering.</span>`;
+    costEstimatesDiv.appendChild(note);
+    
     // Sort cost savings by popularity/relevance
     const popularModels = ['gpt-4o-mini', 'gpt-4o', 'claude-haiku-3.5', 'claude-sonnet-3.5', 'o3-mini', 'gpt-4.1-mini'];
     const sortedSavings = [...savings.costSavings].sort((a, b) => {
@@ -177,17 +184,22 @@ function displayTokenSavings(savings: ReturnType<typeof calculateTokenSavings>) 
         
         const costLabel = document.createElement('span');
         costLabel.className = 'cost-label';
-        costLabel.textContent = 'Saved per prompt:';
+        costLabel.textContent = 'You save:';
         
         const costValue = document.createElement('span');
         costValue.className = 'cost-value';
         
-        // Format cost based on value
-        if (estimate.totalCost < 0.01) {
-            costValue.textContent = `$${(estimate.totalCost * 1000).toFixed(2)}/1K`;
+        // Always show the actual dollar amount saved
+        if (estimate.totalCost < 0.0001) {
+            // For very small amounts, show in scientific notation or as "< $0.0001"
+            costValue.textContent = '< $0.0001';
             costValue.classList.add('small');
-        } else {
+        } else if (estimate.totalCost < 0.01) {
+            // For small amounts, show 4 decimal places
             costValue.textContent = `$${estimate.totalCost.toFixed(4)}`;
+        } else {
+            // For larger amounts, show 2 decimal places
+            costValue.textContent = `$${estimate.totalCost.toFixed(2)}`;
         }
         
         costDetails.appendChild(costLabel);
