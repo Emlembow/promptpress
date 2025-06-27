@@ -183,9 +183,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ## 🙏 Acknowledgments
 
-- Inspired by research on LLM token optimization
-- Built with TypeScript and Vite
-- Stemming algorithms from natural language processing research
+- Based on techniques discovered in [gptrim](https://github.com/vlad-ds/gptrim) by vlad-ds
 
 ---
 
